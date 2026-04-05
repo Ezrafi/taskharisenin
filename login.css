@@ -1,0 +1,205 @@
+/* Variabel Warna agar konsisten */
+:root {
+    --primary: #2ecc71;      /* Hijau VideoBelajar */
+    --secondary: #f39c12;    /* Oranye VideoBelajar */
+    --text-dark: #2c3e50;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- Navbar Custom --- */
+.logo-brand {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.logo-brand span {
+    color: var(--secondary);
+}
+
+.dropdown-toggle::after {
+    display: none; /* Menghilangkan tanda panah bawaan dropdown */
+}
+
+.rounded-circle:hover {
+    border-color: var(--primary-color) !important;
+    transition: 0.3s;
+}
+
+/* --- Login Layout --- */
+.login-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 40px 20px; /* Padding atas lebih besar karena navbar fixed */
+}
+
+.login-card {
+    background: var(--white);
+    padding: 50px;           /* Lebih lega di dalam */
+    border-radius: 16px;     /* Sudut lebih halus */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 500px;       /* Ukuran box diperbesar sesuai request */
+    text-align: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+p {
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* --- Form Elements --- */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+/* Efek saat input diklik (Focus) */
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background: #27ae60;
+    transform: translateY(-2px); /* Efek melayang sedikit */
+}
+
+/* --- Divider --- */
+.divider {
+    margin: 25px 0;
+    position: relative;
+    border-bottom: 1px solid #eee;
+}
+
+.divider span {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    padding: 0 15px;
+    color: #95a5a6;
+    font-size: 0.85rem;
+}
+
+/* --- Google Button --- */
+.btn-google {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-google i {
+    color: #4285F4; /* Warna biru Google */
+    font-size: 1.2rem;
+}
+
+.btn-google:hover {
+    background: #fdfdfd;
+    border-color: #ccc;
+}
+
+/* --- Links --- */
+.register-link {
+    margin-top: 25px;
+    font-size: 0.9rem;
+}
+
+.register-link a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.back-home {
+    margin-top: 30px;
+}
+
+.back-home a {
+    text-decoration: none;
+    color: #bdc3c7;
+    font-size: 0.85rem;
+}
+
+.back-home a:hover {
+    color: var(--text-dark);
+}
