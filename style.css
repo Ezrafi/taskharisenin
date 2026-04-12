@@ -1,12 +1,4 @@
-/* Variabel Warna agar konsisten */
-:root {
-    --primary: #2ecc71;      /* Hijau VideoBelajar */
-    --secondary: #f39c12;    /* Oranye VideoBelajar */
-    --text-dark: #2c3e50;
-    --bg-light: #f8f9fa;
-    --white: #ffffff;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -20,57 +12,126 @@ body {
     padding-top: 70px;
 }
 
-/* --- Navbar Custom --- */
-.logo-brand {
-    text-decoration: none;
-    color: #000000;          /* "Video" warna Hitam */
-    font-size: 1.5rem;
-    font-weight: 800;
+/* --- Navbar Semantik & Presisi --- */
+.navbar {
+    height: 80px;              /* Height: Hug (80px) */
+    background-color: #ffffff;
+    border-bottom: 1px solid #E5E5E5; /* Border Bottom 1px */
+    padding: 12px 0;           /* Padding Top & Bottom 12px */
+    display: flex;
+    align-items: center;
 }
 
-.logo-brand span {
-    color: var(--secondary); /* "belajar" warna Oranye */
+.navbar > .container {
+    max-width: 1440px;         /* Width Fixed 1440px */
+    width: 100%;
+    padding-left: 120px;       /* Padding Left 120px */
+    padding-right: 120px;      /* Padding Right 120px */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 36px;                 /* Gap 36px antar elemen utama */
 }
 
-.profile-nav-link i {
-    font-size: 2.2rem;
-    color: var(--text-dark);
-    transition: 0.3s;
+/* Penyesuaian untuk elemen di sisi kanan */
+.d-flex.align-items-center {
+    gap: 36px;                 /* Gap antar teks 'Kategori' dan Dropdown */
 }
 
-.profile-nav-link:hover i {
-    color: var(--primary);
+/* Styling Avatar agar tetap proporsional */
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #f0f0f0;
 }
 
+/* Menghilangkan default arrow dropdown */
 .dropdown-toggle::after {
-    display: none;
+    display: none !important;
 }
+
+/* Responsive: Jika layar lebih kecil dari 1440px, padding menyesuaikan */
+@media (max-width: 1440px) {
+    .navbar > .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
 
 /* --- Hero Section --- */
+/* --- Hero Section Custom --- */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
+    /* Layout Utama */
+    width: 100%; /* Agar memenuhi lebar layar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px; /* Jarak agar tidak tertutup navbar fixed */
 }
 
-.hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 15px; }
+.hero .container {
+    /* Spesifikasi Sesuai Request */
+    width: 1200px;
+    height: 400px;
+    opacity: 1;
+    padding: 82px 140px 64px 140px; /* Top Right Bottom Left */
+    border-radius: 10px;
+    
+    /* Content Alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 24px; /* Gap antar teks dan tombol */
+
+    /* Background & Effects */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80');
+    background-size: cover;
+    background-position: center;
+    transform: rotate(0deg); /* Angle: 0 deg */
+    color: #ffffff; /* Warna teks agar terbaca di background dark */
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin: 0;
+    max-width: 600px; /* Supaya teks tidak terlalu panjang ke samping */
+}
 
 .btn-hero {
-    background: var(--primary);
-    color: white;
+    background-color: #3ECF4C; /* Hijau brand VideoBelajar */
+    
     border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 12px 24px;
     border-radius: 8px;
-    margin-top: 20px;
+    font-weight: 700;
     transition: 0.3s;
 }
 
-.btn-hero:hover { background: #27ae60; transform: scale(1.05); }
+.btn-hero:hover {
+    background-color: #34b37a;
+    transform: translateY(-2px);
+}
+
+/* Responsive: Jika layar lebih kecil dari 1200px */
+@media (max-width: 1200px) {
+    .hero .container {
+        width: 95%;
+        padding: 60px 20px;
+        height: auto; /* Biarkan konten menentukan tinggi di layar kecil */
+    }
+}
 
 /* --- Categories --- */
 .categories-section { padding-top: 50px; }
@@ -145,12 +206,107 @@ body {
     margin-left: 10px;
 }
 
-/* --- Footer --- */
-footer { background: var(--text-dark); color: #bdc3c7; padding: 60px 0; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
-footer h4 { color: white; margin-bottom: 20px; }
-footer a { color: #bdc3c7; text-decoration: none; display: block; margin-bottom: 10px; }
-footer a:hover { color: var(--secondary); }
+/* Footer */
+    .footer {
+        padding: 54px 26px 0 26px;
+        font-family: "Open Sans", sans-serif;
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+    }
+
+    .first-section-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .side-left-footer{
+        width: 100%;
+    }
+
+    .side-right-footer{
+        align-items: start;
+        width: 100%;
+        display: flex;
+    }
+
+    .caption-footer {
+        font-size: 18px;
+        margin-right: 2rem;
+    }
+
+    .address-footer{
+        font-size: 16px;
+        margin-right: 2rem;
+    }
+
+    .logo-footer img {
+        width: 170px;
+    }
+
+    .footer-menu {
+        display: none;
+    }
+
+    .wrapper-menu-footer{
+        margin-right: 1rem;
+    }
+
+    .title-menu-footer{
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+
+    .category,
+    .company,
+    .community{
+        list-style-type: none;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333333d7;
+        margin-top: 0;
+        padding-left: 0;
+        white-space: nowrap;
+        line-height: 1.75;
+    }
+
+    .footer-divider {
+        margin-top: 23px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .end-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .social {
+        list-style-type: none;
+        display: flex;
+        padding-left: 0;
+        font-size: 16pt;
+        margin-bottom: 25px;
+    }
+
+    .social li {
+        border: 1px solid #a5a5a5;
+        padding: 10px 10px;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        text-align: center;
+        box-sizing: content-box;
+    }
+
+    .copyright {
+        color: #646363;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 500;
+        font-size: 16px !important;
+    }
+
 
 /* --- RESPONSIVE FIX (Mobile) --- */
 @media (max-width: 768px) {
